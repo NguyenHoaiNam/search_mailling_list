@@ -23,3 +23,6 @@ def main():
     end_month = options.end_month
     year = options.year
     keyword = options.keyword
+    
+if __name__ = "__main__"
+    main()
