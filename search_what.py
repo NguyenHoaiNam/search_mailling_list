@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Author: Nguyen Hoai Nam
 
-def option_command():
+def main():
     global LF
     parser = optparse.OptionParser(usage="usage: %prog [options]",
                                    version="%prog 1.0")
