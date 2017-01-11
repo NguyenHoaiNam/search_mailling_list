@@ -18,6 +18,14 @@ def get_url(month_number, year):
     return requests.get(url)
 
 
+def my_heart(content, list_filter):
+    result = []
+    for i in content:
+        if all(list_filter in i for list_filter in list_filter):
+            result.append(i)
+    return result
+
+
 def main():
     parser = optparse.OptionParser(usage="usage: %prog [options]",
                                    version="%prog 1.0")
