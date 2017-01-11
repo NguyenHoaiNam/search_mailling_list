@@ -19,7 +19,6 @@ def get_url(month_number, year):
 
 
 def main():
-    global LF
     parser = optparse.OptionParser(usage="usage: %prog [options]",
                                    version="%prog 1.0")
     parser.add_option("-m", "--month", action='store', type="int",
