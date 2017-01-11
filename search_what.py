@@ -2,6 +2,21 @@
 # -*- coding: utf-8 -*-
 # Author: Nguyen Hoai Nam
 import optparse
+import requests
+
+MAPPING_MONTH = {
+    1: "January", 2: "February", 3: "March", 4: "April",
+    5: "May", 6: "June", 7: "July", 8: "August", 9: "September",
+    10: "October", 11: "November", 12: "December"
+}
+
+
+def get_url(month_number, year):
+    month_string = MAPPING_MONTH[month_number]
+    url = "http://lists.openstack.org/pipermail/" \
+          "openstack-dev/%s-%s/thread.html" % (month_string, year)
+    return requests.get(url)
+
 
 def main():
     global LF
@@ -25,5 +40,5 @@ def main():
     year = options.year
     keyword = options.keyword
     
-if __name__ = "__main__"
+if __name__ == "__main__":
     main()
