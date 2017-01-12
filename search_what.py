@@ -35,7 +35,8 @@ def my_heart(content, list_filter):
 def action_filter(month, year, keywords):
     content_ml = get_url(month, year)
     result_filter = my_heart(content_ml, keywords)
-    print '#### The result for %s' % MAPPING_MONTH[month]
+    print '#### The result for %s in %s' % \
+          (MAPPING_MONTH[month], year)
     for i in result_filter:
         print i
 
