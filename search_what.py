@@ -11,10 +11,14 @@ MAPPING_MONTH = {
 }
 
 
-def get_url(month_number, year):
+def create_url(month_number, year):
     month_string = MAPPING_MONTH[int(month_number)]
-    url = "http://lists.openstack.org/pipermail/" \
-          "openstack-dev/%s-%s/thread.html" % (year, month_string)
+    return "http://lists.openstack.org/pipermail/" \
+           "openstack-dev/%s-%s/thread.html" % (year, month_string)
+
+
+def get_url(month_number, year):
+    url = create_url(month_number, year)
     get_request = requests.get(url)
     content_request = get_request.content
     return content_request.split('\n')
@@ -35,10 +39,14 @@ def my_heart(content, list_filter):
 def action_filter(month, year, keywords):
     content_ml = get_url(month, year)
     result_filter = my_heart(content_ml, keywords)
-    print '#### The result for %s in %s' % \
-          (MAPPING_MONTH[month], year)
-    for i in result_filter:
-        print i
+    if len(result_filter) > 0:
+        print '########## The result for %s-%s ##########' \
+              % (month, year)
+        print create_url(month, year)
+        for i in result_filter:
+            print i
+    else:
+        print "There are not any results at %s-%s :(" % (month, year)
 
 
 def main():
