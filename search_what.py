@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Author: Nguyen Hoai Nam
+from datetime import datetime
 import optparse
 import requests
 
@@ -9,7 +10,7 @@ MAPPING_MONTH = {
     5: "May", 6: "June", 7: "July", 8: "August", 9: "September",
     10: "October", 11: "November", 12: "December"
 }
-
+MESSAGE_RAISE = 'Input wrong !!!'
 
 def create_url(month_number, year):
     month_string = MAPPING_MONTH[int(month_number)]
@@ -34,6 +35,18 @@ def my_heart(content, list_filter):
                 from_index = i.find('[openstack-dev]')
                 result.append(i[from_index:])
     return result
+
+
+def check_condition(month, year, start_month, end_month):
+
+    if month and year:
+        if datetime(int(year), int(month), 1) > datetime.now():
+            raise Exception(MESSAGE_RAISE)
+    if start_month and end_month:
+        if int(start_month) > int(end_month):
+            raise Exception(MESSAGE_RAISE)
+    else:
+        pass
 
 
 def action_filter(month, year, keywords):
@@ -74,6 +87,7 @@ def main():
     end_month = options.end_month
     year = options.year
     keywords = options.keywords
+    check_condition(month, year, start_month, end_month)
     if month:
         action_filter(month, year, keywords)
     else:
