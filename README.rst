@@ -1,4 +1,4 @@
-Search malling list - To search all header of mailling list on Openstack
+ml_search - Search all header of mailling-list on Openstack
 ========================================================================
 
 Installation
@@ -6,7 +6,7 @@ Installation
 
 By using pip::
 
-    pip install ml_seach
+    pip install ml_search
 
 Example
 -------
