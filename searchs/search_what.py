@@ -1,6 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 # Author: Nguyen Hoai Nam
+
 from datetime import datetime
 import optparse
 import requests
@@ -11,6 +12,7 @@ MAPPING_MONTH = {
     10: "October", 11: "November", 12: "December"
 }
 MESSAGE_RAISE = 'Input wrong !!!'
+
 
 def create_url(month_number, year):
     month_string = MAPPING_MONTH[int(month_number)]
