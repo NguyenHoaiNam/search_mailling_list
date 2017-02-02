@@ -1,5 +1,3 @@
-#!/usr/bin/env python2
-# -*- coding: utf-8 -*-
 # Author: Nguyen Hoai Nam
 from datetime import datetime
 import optparse
