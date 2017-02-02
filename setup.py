@@ -6,17 +6,19 @@ try:
 except ImportError:
     from distutils.core import setup
 
-import searchs
-
 requisites = []
 
 setup(
     name='ml_search',
-    version=searchs.__version__,
-    description='Search all header of mailling-list on Openstack',
+    version='1.0',
+    description='Search all header of mailing-list on OpenStack',
+    keywords='openstack, mailing-list',
+    install_requires=[
+        'requests'
+    ],
     scripts=['scripts/ml_search'],
     long_description=open('README.rst').read(),
-    author='Nam Nguyen Hoai',
+    author='Nguyen Hoai Nam',
     author_email='namptit307@gmail.com',
     url='https://github.com/NguyenHoaiNam/search_mailling_list',
     packages=['ml_search'],
